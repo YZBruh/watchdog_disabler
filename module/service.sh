@@ -1,3 +1,3 @@
 #!/system/bin/sh
 
-suspend_watchdog &
+disable_watchdog &
