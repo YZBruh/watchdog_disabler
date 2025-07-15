@@ -86,7 +86,7 @@ mkzip()
 	rm -f $PWD/system/bin/placeholder $PWD/system/bin/disable_watchdog
 	mk_customize $1 > $PWD/customize.sh
 	chmod 755 $PWD/customize.sh
-	cp $dir/disable_watchdog $PWD/system/bin
+	cp ../$dir/disable_watchdog $PWD/system/bin
 	zip -rq $MOD *
 	mv $MOD ..
 	cd ..
