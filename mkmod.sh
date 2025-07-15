@@ -19,14 +19,13 @@ set -e
 
 BUILD_64="build_arm64-v8a"
 BUILD_32="build_armeabi-v7a"
-MOD="watchdog_disabler_$(date +%Y-%M-%d).zip"
 THIS="$(basename $0)"
 
 echo() { command echo "[$THIS]: $@"; }
 
 clean()
 {
-	rm -rf $MOD \
+	rm -rf watchdog_disabler*.zip \
 		$PWD/module/system/bin/disable_watchdog \
 		$PWD/module/customize.sh
 	touch $PWD/module/system/bin/placeholder
@@ -98,6 +97,8 @@ if [ $# -eq 0 ]; then
 	command echo "Usage: $0 32|64|clean"
 	exit 1
 fi
+
+MOD="watchdog_disabler_$1-bit_$(date +%Y-%M-%d).zip"
 
 case $1 in
 	"32")		prepare; mkzip 32 ;;
